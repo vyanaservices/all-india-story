@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: scroll 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --roboto: "Roboto", sans-serif;
+  --font1: "sofia", sans-serif;
+  --bg1: #f97316;
+  --bg2: #000000;
+  --bg3: #fae7d6;
+}
+
+@theme {
+  --roboto: "Roboto", sans-serif;
+  --font1: "sofia", sans-serif;
+  --bg1: #f97316;
+  --bg2: #000000;
+  --bg3: #fae7d6;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--roboto);
+}
+
+.bg1 {
+  background-color: var(--bg1);
+}
+.bg2 {
+  background-color: var(--bg2);
+}
+.bg3 {
+  background-color: var(--bg3);
+}
+.color1 {
+  background-color: var(--bg1);
+}
+.color2 {
+  background-color: var(--bg2);
+}
+.color3 {
+  background-color: var(--bg3);
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* thin-scrollbar */
+  /* width */
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: #adadad;
+    border-radius: 5px;
+  }
+
+  /* Handle */
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 2px;
+  }
+
+  /* Handle on hover */
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+/* custom scrollbar  */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    height: 0px;
+  }
+}
+/* END of custom scrollbar  */
+
+/* ------------------------------ */
+
+.move-right-animation {
+  animation: move-right 1s ease-in-out infinite;
+}
+@keyframes move-right {
+  0% {
+    transform: translateX(50%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.move-right-shine-animation::before {
+  content: "";
+  width: 15%;
+  height: 300px;
+  background-color: #fff;
+  transform: rotate(30deg);
+  position: absolute;
+  top: -150px;
+  left: -40px;
+  opacity: 0.5;
+  filter: blur(10px);
+  animation: move-right-shine 3s ease-in-out infinite;
+}
+@keyframes move-right-shine {
+  0% {
+    left: -40px;
+    opacity: 0.5;
+  }
+
+  25% {
+    left: 150%;
+    opacity: 0.5;
+  }
+
+  75% {
+    left: 150%;
+    opacity: 0;
+  }
+
+  100%,
+  to {
+    left: -150px;
+    opacity: 0;
+  }
+}
+
+.jump-top-animation {
+  animation: jump-top 1s ease-in-out infinite alternate;
+}
+@keyframes jump-top {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.react-international-phone-input-container {
+  width: 100%;
+  .react-international-phone-country-selector-button {
+    padding: 1.3rem 0.5rem !important;
+  }
+}
+
+.borderedText {
+  color: #f9741662;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke: 3px #f9741665;
+}

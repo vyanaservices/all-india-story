@@ -1,0 +1,15 @@
+overwrite: true
+schema: "${NEXT_PUBLIC_GRAPHQL_ENDPOINT}" # Ensure this variable is in .env.local
+documents: "src/graphql/**/*.graphql"     # Updated path for queries/mutations
+generates:
+  src/graphql/generated/:                  # Output folder for generated files
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.tsx
+      baseTypesPath: ../types.ts           # Adjusted base types path
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+config:
+  avoidOptionals: true
